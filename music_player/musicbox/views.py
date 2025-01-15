@@ -30,3 +30,5 @@ class SignUpView(View):
             return redirect('signup')
         
         return render(request,self.template_name,{'form':form_instance})
+    
+    
