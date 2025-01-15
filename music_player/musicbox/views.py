@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from django.views.generic import View
 
@@ -17,4 +17,16 @@ class SignUpView(View):
 
         form_instance = self.form_class
 
+        return render(request,self.template_name,{'form':form_instance})
+    
+    def post(self,request,*args,**kwargs):
+
+        form_instance = self.form_class(request.POST)
+
+        if form_instance.is_valid():
+
+            form_instance.save()
+
+            return redirect('signup')
+        
         return render(request,self.template_name,{'form':form_instance})
