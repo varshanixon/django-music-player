@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 # Custom User Model
 class User(AbstractUser):
 
-    phone = models.CharField(max_length=15,unique=True)
+    phone = models.CharField(max_length=15,unique=False)
 
     dob = models.DateField(blank=True,null=True)
 
